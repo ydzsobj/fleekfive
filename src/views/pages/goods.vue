@@ -20,7 +20,7 @@
           <img src="../../assets/images/ydzstou.png" height="30px" slot="title">
           <van-icon name="cart" slot="right" size="20px" :info="cartNumCount" @click.native="tocart" :class="{ 'animationCartCount': skuSelectedImg }"/>
         </van-nav-bar>
- 
+
         <div class="swiper-area">
             <van-swipe @change="onChange" ref="swipe">
               <van-swipe-item v-if="goodsInfo.main_video_url">
@@ -168,7 +168,7 @@
                                 <van-button icon="comment" type="danger" @click="commentSubmit">{{$t('tocomment')}}</van-button>
                             </van-row>
                         </van-collapse-item>
-                        <van-collapse-item :title="$t('aboutus')" name="3" size="large">
+                        <!-- <van-collapse-item :title="$t('aboutus')" name="3" size="large">
                               <van-cell-group :border="false">
                                 <van-cell>
                                     <div>{{$t('floorPage_1Title')}}</div>
@@ -205,10 +205,10 @@
                                     </div>
                                 </van-cell>
                               </van-cell-group>
-                        </van-collapse-item>
+                        </van-collapse-item> -->
                       </van-collapse>
-                      <mainFooter></mainFooter>     
-                   </div>
+                      <mainFooter></mainFooter> 
+                      </div>
                 </van-tab>
                 <!-- <van-tab class="comment" :title="$t('aboutus')">
                     <van-list
@@ -286,16 +286,16 @@
             :text="$t('shopCart')"
             @click.native="tocart" style="margin: 0 15px;"
           /> -->
-          <!-- <van-goods-action-icon
-            icon="shop-o"
+          <van-goods-action-icon
+            icon="wap-home"
             :text="$t('store')"
             @click.native="tohome"
-          /> -->
-          <van-goods-action-icon
+          />
+          <!-- <van-goods-action-icon
             icon="cart"
             :text="$t('addCart')"
             @click.native="showSkuCart" style="border-radius: 0;padding:0 5px;margin-right: 5px;"
-          />
+          /> -->
           <van-goods-action-button
             type="danger"
             :text="$t('buy')"

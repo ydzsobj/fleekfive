@@ -17,7 +17,7 @@ Vue.config.productionTip = false
 
 Vue.use(VueI18n) // 通过插件的形式挂载
 const i18n = new VueI18n({
-  locale: 'ind-BA',    // 语言标识
+  locale: 'en-PHP',    // 语言标识
   //this.$i18n.locale // 通过切换locale的值来实现语言切换
   messages: {
     'zh-CN': zh,   // 中文语言包

@@ -291,11 +291,16 @@
             :text="$t('store')"
             @click.native="tohome"
           />
-          <!-- <van-goods-action-icon
+            <van-goods-action-icon
+            icon="phone-circle-o"
+            :text="$t('concatus')"
+            @click.native="toconcatus"
+          />
+          <van-goods-action-icon
             icon="cart"
             :text="$t('addCart')"
             @click.native="showSkuCart" style="border-radius: 0;padding:0 5px;margin-right: 5px;"
-          /> -->
+          />
           <van-goods-action-button
             type="danger"
             :text="$t('buy')"
@@ -894,6 +899,9 @@
             },
             onClickRight(){
               this.dialogshow= true
+            },
+            toconcatus(){
+              window.open("whatsapp://send?phone=+65088768960&text=Hello");   
             }
         },
     }
@@ -1115,5 +1123,8 @@
     }
     >>> .van-sku__goods-price {
         color: #f44
+    }
+    >>> .van-goods-action-icon{
+      min-width: 30px;
     }
 </style>

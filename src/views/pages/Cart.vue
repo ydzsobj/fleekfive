@@ -504,6 +504,7 @@
                 // console.log(this.malldata,this.countPrice)
                 this.submitloading=true
                 let data = {}
+                data.country_id = this.$store.state.country_id
                 data.cart_data = this.malldata
                 data.total_off = this.total_off
                 data.receiver_name = this.name

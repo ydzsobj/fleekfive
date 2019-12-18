@@ -3,7 +3,7 @@
 if(process.env.NODE_ENV === 'development'){
     var LOCALURL =  "http://www.website-m.cc/"
 }else if(process.env.NODE_ENV === 'test'){
-    var LOCALURL =  "http://www.website.cc/"
+    var LOCALURL =  "http://www.website-m.cc/"
 }else{
     var LOCALURL =  ""
     var host = location.host

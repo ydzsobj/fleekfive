@@ -158,7 +158,7 @@ export default {
         },
             //跳转到商品详细页
             goGoodsInfo(id){
-                this.$router.push({name:'Goods',query:{goodsId:id}})
+                this.$router.push({name:'Goods',query:{goodsId:id,lg: this.$store.state.lang}})
             }
     },
     mounted(){

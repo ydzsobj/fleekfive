@@ -56,7 +56,7 @@ export default {
             this.navLeft_show=!this.navLeft_show
         },
         tocart(){
-            this.$router.push({name:'Cart'})
+            this.$router.push({name:'Cart',query:{lg: this.$store.state.lang}})
         },
         // onSearch(v){
         //     // console.log(v)
@@ -72,9 +72,9 @@ export default {
             this.navLeft_show=false
             // console.log(this.$route.name)
             if(this.$route.name !='CategoryList'&&id!='home'){
-                this.$router.push({name:'CategoryList',params:{categorySubId:id,index:index}})
+                this.$router.push({name:'CategoryList',params:{categorySubId:id,index:index},query:{lg: this.$store.state.lang}})
             }else if(id=='home'){
-                this.$router.push({name:'ShoppingMall'})
+                this.$router.push({name:'ShoppingMall',query:{lg: this.$store.state.lang} })
             }else{
                 this.$emit('nav_index',id)
             }
@@ -90,6 +90,7 @@ export default {
         axios({
             url:url.getShopingMallInfo,
             method:'get',
+            params: {country_id:this.$store.state.country_id}
         })
         .then(response=>{
             // console.log(response)

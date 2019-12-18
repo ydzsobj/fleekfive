@@ -677,10 +677,10 @@
 
             },
             tohome(){
-                this.$router.push({name:"ShoppingMall"})
+                this.$router.push({name:"ShoppingMall",query:{lg: this.$store.state.lang} })
             },
             tocart(){
-                this.$router.push({name:'Cart'})
+                this.$router.push({name:'Cart',query:{lg: this.$store.state.lang} })
             },
             onLoad() {
               setTimeout(() => {
@@ -713,7 +713,7 @@
                    } 
                   try{fbq('track', 'AddToCart');console.log('addtocart')}catch(e){} 
                   try{fbq('track', 'Lead');console.log('Lead')}catch(e){} 
-                  this.$router.push({name:'Cart',params:{skuData: Object.assign(newGoodsInfo , skuData)}}) 
+                  this.$router.push({name:'Cart',params:{skuData: Object.assign(newGoodsInfo , skuData)},query:{lg: this.$store.state.lang}}) 
               }else if (this.isBuyCartAttr==="cart"){
                 this.addGoodsToCart(skuData)
                 console.log(this.isBuyCartAttr,'购物车')
@@ -895,7 +895,7 @@
 
             },
             onClickLeft(){
-              this.$router.push({name:'ShoppingMall'})
+              this.$router.push({name:'ShoppingMall',query:{lg: this.$store.state.lang}})
             },
             onClickRight(){
               this.dialogshow= true

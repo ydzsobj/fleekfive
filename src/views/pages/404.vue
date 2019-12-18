@@ -20,10 +20,10 @@ export default {
     },
     methods: {
         onClickLeft () {
-            this.$router.push({name:'ShoppingMall'})
+            this.$router.push({name:'ShoppingMall',query:{lg: this.$store.state.lang}})
         },
         onClickRight (){
-            this.$router.push({name:'ShoppingMall'})
+            this.$router.push({name:'ShoppingMall',query:{lg: this.$store.state.lang}})
         }
     },
     computed: {

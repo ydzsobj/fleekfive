@@ -1,5 +1,7 @@
 
 export default { 
+    flb:'Filipina',
+    yn: 'Indonesia',
     concatus: 'Hubungi kami',
     aboutus: 'Tentang kita',
     home: 'Halaman utama',

@@ -28,7 +28,7 @@
         },
         methods: {
             goGoodsPage() {
-                this.$router.push({name:'Goods',query:{goodsId:this.goodsId}})
+                this.$router.push({name:'Goods',query:{lg: this.$store.state.lang,goodsId:this.goodsId}})
             }
         },
     }

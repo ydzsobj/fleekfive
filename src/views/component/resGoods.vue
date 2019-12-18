@@ -34,6 +34,7 @@ export default {
         axios({
             url:url.getShopingMallInfo,
             method:'get',
+            params: {country_id:this.$store.state.country_id}
         })
         .then(response=>{
             // console.log(response)
@@ -67,7 +68,7 @@ export default {
     },
     methods: {
         goGoodsPage(goodsId) {
-            this.$router.push({name:'Goods',query:{goodsId}})
+            this.$router.push({name:'Goods',query:{goodsId,lg: this.$store.state.lang}})
         }
     },
     computed: {

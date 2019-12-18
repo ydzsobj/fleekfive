@@ -1,7 +1,17 @@
 <template>
     <div style="background-color: #fff;">
         <top-nav :keywordsVal="keywords"></top-nav>
-        <van-search :placeholder="$t('searchProducts')" v-model="value" shape="round" @search="onSearch" class='search left50'/>
+        <div class='search left50'>
+            <div style="float: left;width: 22%;">
+               <!-- <van-icon name="location-o" style="padding-top: 5px;"/> -->
+               <van-dropdown-menu style="height: 54px">
+                   <van-dropdown-item v-model="value1" :options="option1"  @change="menuchange"/>
+               </van-dropdown-menu>
+               <!-- <van-icon name="arrow-down" /> -->
+            </div>
+           <van-search style="float: left;width: 75%;" :placeholder="$t('searchProducts')" v-model="value" shape="round" @search="onSearch"/>
+        </div>
+
         <!--swiper area-->
         <div class="swiper-area">
             <van-swipe :autoplay="3000" @change="onChange">
@@ -44,6 +54,11 @@
     export default {
         data() {
             return {
+                value1: 2,
+                option1: [
+                  { text: this.$t('yn'), value: 1 },
+                  { text: this.$t('flb'), value: 2 }
+                ],
                 keywords:'',
                 value:'',
                 bar_fixed:true,
@@ -83,9 +98,11 @@
         },
         components:{swiper,swiperSlide,floorComponent,goodsInfo,mainFooter,topNav},
         created(){
+            this.value1=this.$store.state.country_id||2
             axios({
                 url:url.getShopingMallInfo,
                 method:'get',
+                params: {country_id:this.$store.state.country_id}
             })
             .then(response=>{
                 // console.log(response)
@@ -104,10 +121,13 @@
             })
         },
         methods:{
+            menuchange(value){
+                location.href = location.origin+'/?lg='+ (value==1? 'ind-BA' : 'en-PHP')
+            },
             onSearch(v){
             // console.log(v)
             if(this.$route.name !='CategoryList'&&v!=''){
-                this.$router.push({name:'CategoryList',params:{keywords:v}})
+                this.$router.push({name:'CategoryList',query:{lg: this.$store.state.lang},params:{keywords:v}})
                 this.$emit('nav_Search',v)
             }else{
                 this.$emit('nav_Search',v)
@@ -116,11 +136,11 @@
             golistPage(id,index) {
                 this.show=false
                 this.navLeft_show=false
-                this.$router.push({name:'CategoryList',params:{categorySubId:id,index:index}})
+                this.$router.push({name:'CategoryList',query:{lg: this.$store.state.lang},params:{categorySubId:id,index:index}})
             },
             goGoodsPage(id) {
                 // console.log(id)
-                this.$router.push({name:'Goods',query:{goodsId:id}})
+                this.$router.push({name:'Goods',query:{goodsId:id,lg: this.$store.state.lang}})
             },
             onClickNavLeft(){
                 this.show=!this.show
@@ -130,10 +150,10 @@
                 this.current = index;
             },
             onSeek(){
-                this.$router.push({name:'seek'})
+                this.$router.push({name:'seek',query:{lg: this.$store.state.lang}})
             },
             tocart(){
-                this.$router.push({name:'Cart'})
+                this.$router.push({name:'Cart',query:{lg: this.$store.state.lang}})
             }
         },
         mounted(){

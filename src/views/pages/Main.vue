@@ -51,37 +51,37 @@
                 })
                 .then(response=>{
                     if(response.status== 200 && response.data.data){
-                      this.$i18n.locale= response.data.data.config.lang
-                      checkoutLang(response.data.data.config.lang)
-                       this.$store.state.money_sign = response.data.data.config.money_sign
-                       this.$store.state.lang = response.data.data.config.lang
-                       this.$store.state.email = response.data.data.config.email
-                       this.$store.state.phone = response.data.data.config.phone
-                       this.$store.state.global_address = response.data.data.global_configs.global_address
-                       this.$store.state.title = response.data.data.global_configs.global_title
+                    //   this.$i18n.locale= response.data.data.config.lang
+                    //   checkoutLang(response.data.data.config.lang)
+                       this.$store.state.money_sign = response.data.data.country_list[this.$store.state.country_id].money_sign
+                    //    this.$store.state.lang = response.data.data.config.lang
+                       this.$store.state.email = response.data.data.country_list[this.$store.state.country_id].global_email
+                       this.$store.state.phone = response.data.data.country_list[this.$store.state.country_id].global_phone
+                       this.$store.state.global_address = response.data.data.country_list[this.$store.state.country_id].global_address
+                       this.$store.state.title = response.data.data.country_list[this.$store.state.country_id].global_title
                     
                        var head = document.getElementsByTagName('head');
                        //title
                        document.querySelector("meta[property='og:title']").remove();
-                       document.title= response.data.data.global_configs.global_title
+                       document.title= response.data.data.country_list[this.$store.state.country_id].global_title
                        var meta = document.createElement('meta')
                        meta.setAttribute('property', 'og:title')
-                       meta.content = response.data.data.global_configs.global_title
+                       meta.content = response.data.data.country_list[this.$store.state.country_id].global_title
                        head[0].appendChild(meta)
                        //kewords
                        var meta1 = document.createElement('meta')
                        meta1.setAttribute('name', 'Keywords')
-                       meta1.content = response.data.data.global_configs.global_keywords
+                       meta1.content = response.data.data.country_list[this.$store.state.country_id].global_keywords
                        head[0].appendChild(meta1) 
                        //description
                        var meta2 = document.createElement('meta')
                        meta2.setAttribute('name', 'description')
-                       meta2.content = response.data.data.global_configs.global_description
+                       meta2.content = response.data.data.country_list[this.$store.state.country_id].global_description
                        head[0].appendChild(meta2) 
                        document.querySelector("meta[property='og:description']").remove();
                        var meta3 = document.createElement('meta')
                        meta3.setAttribute('name', 'og:description')
-                       meta3.content = response.data.data.global_configs.global_description
+                       meta3.content = response.data.data.country_list[this.$store.state.country_id].global_description
                        head[0].appendChild(meta3)
 
                        
@@ -109,16 +109,16 @@
             //    console.log(active)
                switch(active){
                    case 0:
-                        this.$router.push({name:'ShoppingMall'})
+                        this.$router.push({name:'ShoppingMall',query:{lg: this.$store.state.lang}})
                         break;
                    case 1:
-                        this.$router.push({name:'CategoryList'})
+                        this.$router.push({name:'CategoryList',query:{lg: this.$store.state.lang}})
                         break;
                    case 2:
-                        this.$router.push({name:'Cart'})
+                        this.$router.push({name:'Cart',query:{lg: this.$store.state.lang}})
                         break;
                     case 3:
-                        this.$router.push({name:'Member'})
+                        this.$router.push({name:'Member',query:{lg: this.$store.state.lang}})
                         break;
 
                 

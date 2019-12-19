@@ -52,7 +52,7 @@
                 .then(response=>{
                     if(response.status== 200 && response.data.data){
                     //   this.$i18n.locale= response.data.data.config.lang
-                    //   checkoutLang(response.data.data.config.lang)
+                      checkoutLang(this.$store.state.lang)
                        this.$store.state.money_sign = response.data.data.country_list[this.$store.state.country_id].money_sign
                     //    this.$store.state.lang = response.data.data.config.lang
                        this.$store.state.email = response.data.data.country_list[this.$store.state.country_id].global_email

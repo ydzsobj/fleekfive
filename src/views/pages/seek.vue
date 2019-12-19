@@ -125,7 +125,8 @@ export default {
                     method:'get',
                     params:{
                         keywords:this.keywords,
-                        page:this.page
+                        page:this.page,
+                        country_id:this.$store.state.country_id
                     }
                 })
                 .then(response=>{

@@ -122,6 +122,7 @@
         },
         methods:{
             menuchange(value){
+                localStorage.cartInfo='[]'
                 location.href = location.origin+'/?lg='+ (value==1? 'ind-BA' : 'en-PHP')
             },
             onSearch(v){

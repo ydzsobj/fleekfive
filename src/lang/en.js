@@ -41,7 +41,7 @@ export default {
     email: 'Email',
     emailholder: 'Please Input Your Email',
     province: 'Province',
-    crity: 'Crity',
+    crity: 'City',
     area: 'Barangay',
     post: 'PostalCode',
     provinceholder: 'Please Input Your Province, City And District',

@@ -1109,6 +1109,9 @@
   width: 100%;
   display: block
 }
+#detailcontent >>> iframe {
+  width: 100%;
+}
 #detailcontent >>> p {
   word-wrap:break-word;
 }

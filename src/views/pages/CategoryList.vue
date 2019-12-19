@@ -183,11 +183,13 @@
                 if(this.keywords==''&&this.categorySubId){
                     data={
                         category_id:this.categorySubId,
+                        country_id:this.$store.state.country_id,
                         page:this.page
                     }
                 }else{
                     data={
                         keywords:this.keywords,
+                        country_id:this.$store.state.country_id,
                         page:this.page
                     }
                 }

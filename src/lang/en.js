@@ -33,7 +33,7 @@ export default {
     back: 'Back',
     clearCart: 'Clear Cart',
     clear: 'Clear',
-    payOnDelivery: 'Pay On Delivery', //货到付款
+    payOnDelivery: 'Cash On Delivery & Free Shipping', //货到付款
     name: 'Name',
     nameholder: 'Please Input Your Name',
     phoneNumber: 'Phone Number',

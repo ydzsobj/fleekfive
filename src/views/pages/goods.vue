@@ -292,6 +292,7 @@
             @click.native="tohome"
           />
             <van-goods-action-icon
+            v-if="goodsInfo.whats_app_id"
             icon="phone-circle-o"
             :text="$t('concatus')"
             @click.native="toconcatus"
@@ -624,6 +625,7 @@
                               this.sku.collection_id = this.goodsInfo.collection_id          // 无规格商品 skuId 取 collection_id，否则取所选 sku 组合对应的 id
                               this.goodsInfo.fb_pix && this.fbInit(this.goodsInfo.fb_pix)    // 如有像素 就初始化 fbinit
                               this.attrTextFun()                                  //显示属性名
+                              this.toconcatusMessage(this.goodsInfo.messager_id)
                               reslove()
                           }else{
                               Toast(this.$t('serveError'))
@@ -901,8 +903,64 @@
               this.dialogshow= true
             },
             toconcatus(){
-              window.open("whatsapp://send?phone=+65088768960&text=Hello");   
+              window.open('whatsapp://send?phone='+this.goodsInfo.whats_app_id+'&text=Hello');   
+            },
+            toconcatusMessage(id){
+              // var yuid=null;
+              // if (document.querySelector(".fb-customerchat")){
+              //   yuid=document.querySelector(".fb-customerchat").getAttribute("page_id") 
+              // }
+              // if( id && yuid !== id){
+
+
+              // }else{  
+                  
+              //     var element1= document.querySelector(".fb-customerchat");            
+              //     element1.parentNode.removeChild(element1);
+              //     var element2= document.querySelector(".fb-customerchat");            
+              //     element2.parentNode.removeChild(element2);
+              // }
+                 console.log('laile',id)
+                try {
+                  console.log('remove')
+                    var element1= document.querySelector(".fb-customerchat");            
+                    element1.parentNode.removeChild(element1);
+                    var element2= document.querySelector("#fb-root");            
+                    element2.parentNode.removeChild(element2)
+                } catch (error) {
+                  
+                }
+                if(id){
+                  console.log(id)
+                  //  var app = document.getElementById('app')
+                   var fbboot = document.createElement("div")
+                       fbboot.id= "fb-root"
+                   var chat = document.createElement("div") 
+                       chat.className= "fb-customerchat"
+                       chat.setAttribute("attribution","setup_tool") 
+                       chat.setAttribute("page_id",id) 
+      
+                       document.body.insertBefore(fbboot, document.body.firstElementChild)
+                       document.body.insertBefore(chat, document.body.firstElementChild)
+
+                      window.fbAsyncInit = function() {
+                         FB.init({
+                           xfbml            : true,
+                           version          : 'v5.0'
+                         });
+                       };
+
+                      (function(d, s, id) {
+                        var js, fjs = d.getElementsByTagName(s)[0];
+                        if (d.getElementById(id)) return;
+                        js = d.createElement(s); js.id = id;
+                        js.src = 'https://connect.facebook.net/en_US/sdk/xfbml.customerchat.js';
+                        fjs.parentNode.insertBefore(js, fjs);
+                      }(document, 'script', 'facebook-jssdk'));
+                }
+
             }
+
         },
     }
 </script>

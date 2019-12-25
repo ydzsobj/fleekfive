@@ -30,8 +30,8 @@
         <!--type bar-->
         <div class="type-bar">
             <div v-for="(cate,index) in category" :key="index"  @click="golistPage(cate.mallCategoryId,index)">
-                <img :src="cate.image_url" width="90%">
-                <span>{{cate.mallCategoryName}}</span>
+                <img :src="cate.image_url" width="100%">
+                <!-- <span>{{cate.mallCategoryName}}</span> -->
             </div>
         </div>
         <mainFooter></mainFooter>
@@ -244,12 +244,12 @@
 .type-bar>div{
     text-align: center;
     border-bottom: 1px solid #eae8e4;
-    padding: 20px 0
+    /* padding: 20px 0 */
 }
 .type-bar img{
     margin: 0 auto;
     display: block;
-    margin-bottom: 20px;
+    /* margin-bottom: 20px; */
 }
 .search{
     position: fixed;

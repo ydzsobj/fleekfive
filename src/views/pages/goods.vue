@@ -906,20 +906,14 @@
               window.open('whatsapp://send?phone='+this.goodsInfo.whats_app_id+'&text=Hello');   
             },
             toconcatusMessage(id){
-              // var yuid=null;
-              // if (document.querySelector(".fb-customerchat")){
-              //   yuid=document.querySelector(".fb-customerchat").getAttribute("page_id") 
-              // }
-              // if( id && yuid !== id){
-
-
-              // }else{  
-                  
-              //     var element1= document.querySelector(".fb-customerchat");            
-              //     element1.parentNode.removeChild(element1);
-              //     var element2= document.querySelector(".fb-customerchat");            
-              //     element2.parentNode.removeChild(element2);
-              // }
+              var yuid=null;
+              if (document.querySelector(".fb-customerchat")){
+                yuid=document.querySelector(".fb-customerchat").getAttribute("page_id") 
+              }
+              if( id && yuid == id){
+                console.log('messagereturn')
+                 return;
+              }
                  console.log('laile',id)
                 try {
                   console.log('remove')

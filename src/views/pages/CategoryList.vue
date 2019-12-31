@@ -111,13 +111,11 @@
            },
         },
         created(){
-            console.log(this.$route.params,1)
             this.keywords=this.$route.params.keywords
             // this.getCategory();
            
         },
         activated(){
-            console.log(this.$route.params,2)
             if( this.$route.params.categorySubId){
                 this.keywords=''
                 this.page=1
@@ -179,7 +177,6 @@
                     this.onLoad()
             },
             getGoodList(index){
-                console.log(this.categorySubId,3)
                 var data ={}
                 if(this.keywords==''&&this.categorySubId){
                     data={

@@ -135,7 +135,6 @@
             }
         },
             golistPage(id,index) {
-                console.log(id,555)
                 this.show=false
                 this.navLeft_show=false
                 this.$router.push({name:'CategoryList',query:{lg: this.$store.state.lang},params:{categorySubId:id,index:index}})

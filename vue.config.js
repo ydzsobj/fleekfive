@@ -7,7 +7,7 @@ module.exports = {
             modifyVars: {
               red: 'black',
               blue: 'black',
-              'sku-item-background-color': '#fff',
+              // 'sku-item-background-color': '#fff',
             //   orange: '#f08d49',
               // 'text-color': '#111',
               // 'font-size-xs': '12px',
